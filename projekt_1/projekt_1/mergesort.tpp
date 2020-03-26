@@ -1,3 +1,6 @@
+/* Funkcja laczaca dwa zbiory w jeden wraz z ich uporzadkowaniem         */
+/* Wykorzystuje indeks pierwszego elementeu w pierwszym i drugim zbiorze */
+/*************************************************************************/
 template<typename E>
 void merge(E tab[], E p[], int iyoung, int iold, int ilast)
 {
@@ -25,6 +28,8 @@ void merge(E tab[], E p[], int iyoung, int iold, int ilast)
 	}
 }
 
+/* Funkcja sortowania przez scalanie               */
+/***************************************************/
 template<typename E>
 void mergesort(E tab[], E p[], int iyoung, int ilast)
 {

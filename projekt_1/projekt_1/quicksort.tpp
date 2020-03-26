@@ -1,29 +1,38 @@
+/* Funkcja zamieniajaca dwa elementy w tablicy tab */
 template<typename E>
 void swap(int l, int r, E tab[])
 {
-    int temp;
+    E temp;
     temp = tab[l];
     tab[l] = tab[r];
     tab[r] = temp;
 }
 
+/* Funkcja sluzaca do podzialu tablicy             */
+/***************************************************/
 template<typename E>
 int partition(int l, int r, E tab[])
 {
-    int position = l;
-    int pivot_index = (l + r) / 2;
-    int pivot = tab[pivot_index];
-    swap(pivot_index, r, tab);
-    for (int i = l; i < r; ++i)
-        if (tab[i] < pivot)
-        {
-            swap(position, i, tab);
-            ++position;
-        }
-    swap(position, r, tab);
-    return position;
+    E pivot = tab[(l+r)/2];
+    int i = l-1;
+    int j = r+1;
+
+    for(;;)
+    {
+        do
+             ++i;
+        while(tab[i] < pivot);
+        do
+            --j;
+        while(tab[j] > pivot);
+        if(i >= j)
+            return j;
+        swap(i,j,tab);
+    }
 }
 
+/* Funkcja sortowania szybkiego                    */
+/***************************************************/
 template<typename E>
 void quicksort(int l, int r, E tab[])
 {
@@ -31,7 +40,7 @@ void quicksort(int l, int r, E tab[])
     if (l < r)
     {
         i = partition(l, r, tab);
-        quicksort(l, i - 1, tab);
+        quicksort(l, i , tab);
         quicksort(i + 1, r, tab);
     }
 

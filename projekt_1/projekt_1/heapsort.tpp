@@ -50,6 +50,7 @@ void buildheap(E tab[], int n)
 template<typename E>
 void heapsort(E tab[], int size)
 {
+    buildheap(tab,size);
     while (size >= 2)
     {
         swap(tab[1], tab[size]);
